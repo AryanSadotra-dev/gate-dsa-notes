@@ -1,0 +1,198 @@
+/*
+====================================================================
+📘 Analysis of Algorithms – Lecture Notes
+====================================================================
+
+This lecture explains why algorithms must be analyzed, why performance
+is subjective, how performance depends on use-cases, and how algorithm
+analysis is done using A-posteriori and A-priori methods.
+
+--------------------------------------------------------------------
+Why Analysis of Algorithms?
+--------------------------------------------------------------------
+For a single problem, multiple algorithms can exist (A1, A2, A3, ...).
+All may produce correct results, but not all are equally good. The key
+question is: Which algorithm is the best? The answer depends on
+performance.
+
+--------------------------------------------------------------------
+Performance Is a Subjective Term
+--------------------------------------------------------------------
+Performance does not have a universal meaning. Different users judge
+performance using different criteria.
+
+Example: Buying a car
+One person may judge performance by mileage, another by pickup or
+comfort. A low-budget user prefers WagonR for mileage, while a rich
+user prefers BMW for comfort and speed. Thus, performance depends on
+usage and priorities.
+
+Conclusion: The same algorithm can be good in one scenario and bad in
+another.
+
+--------------------------------------------------------------------
+Performance Depends on Use-Case
+--------------------------------------------------------------------
+Whenever someone says an algorithm performs well, the question should
+be: Performs well in which sense and in which environment?
+
+--------------------------------------------------------------------
+Performance Criteria in Different Domains
+--------------------------------------------------------------------
+
+1. Personal Computing (Von Neumann Architecture)
+Environment: Desktop or Laptop computers
+Criteria:
+- CPU execution time
+- Memory usage
+An algorithm is good if it takes less time and less memory.
+
+2. Distributed Algorithms
+Environment: Multiple independent systems connected via network
+Key bottleneck: Bandwidth
+An algorithm is good if it minimizes data transfer and network usage.
+Time and memory are less critical here.
+
+3. Mobile Computing
+Environment: Battery-powered devices
+Key criterion: Power consumption
+An algorithm is good if it consumes less battery, even if it is slower.
+
+--------------------------------------------------------------------
+Important Warning
+--------------------------------------------------------------------
+Do NOT say: "An algorithm is good if it takes less time and space."
+Correct statement: Performance depends on where and how the algorithm
+is used. This concept is important for GATE, interviews, and real
+systems.
+
+--------------------------------------------------------------------
+Why GATE Focuses on Time and Space
+--------------------------------------------------------------------
+GATE assumes a personal computing environment with Von Neumann
+architecture. Therefore, in GATE:
+- Performance = Time + Space
+- Time = CPU execution time
+- Space = Memory usage
+
+--------------------------------------------------------------------
+How to Analyze Performance of an Algorithm?
+--------------------------------------------------------------------
+There are two main approaches:
+
+--------------------------------------------------------------------
+1. A-Posteriori Analysis (After Implementation)
+--------------------------------------------------------------------
+Meaning:
+The algorithm is implemented and executed on a real machine.
+
+Measures:
+- Exact CPU execution time
+- Exact memory usage
+
+Dependencies:
+- Programming language
+- Compiler
+- CPU speed
+- Operating system
+- System load
+
+Example:
+    t1 = getTime();
+    z = x + y;
+    t2 = getTime();
+    time = t2 - t1;
+
+Problems with A-Posteriori Analysis:
+- Highly machine-dependent
+- Same algorithm gives different results on different systems
+- Not suitable for fair comparison
+
+--------------------------------------------------------------------
+2. A-Priori Analysis (Before Implementation)
+--------------------------------------------------------------------
+Meaning:
+The algorithm is analyzed before coding. Focus is on logic, not
+execution. This method is machine-independent.
+
+Measures:
+- Approximate CPU time
+- Approximate memory usage
+
+Key Idea:
+- Count basic operations
+- Ignore machine-specific details
+
+This is the method used in DSA theory and GATE.
+
+--------------------------------------------------------------------
+Why CPU and Memory Appear in A-Priori Analysis?
+--------------------------------------------------------------------
+Even without implementation:
+- Algorithm steps imply operations → CPU usage
+- Variables and data structures imply memory usage
+We estimate them abstractly.
+
+--------------------------------------------------------------------
+Why Exact Time Cannot Be Given Without Implementation?
+--------------------------------------------------------------------
+The statement:
+    z = x + y;
+has different execution time depending on:
+- Programming language (C, Java, Python)
+- CPU frequency
+- Operating system
+- Multitasking environment
+
+Similar to asking travel time from Delhi to Agra, which depends on
+transport mode.
+
+--------------------------------------------------------------------
+CPU Clock and Time Measurement
+--------------------------------------------------------------------
+CPU operates in GHz:
+1 GHz = 10^9 clock cycles per second
+1 clock cycle ≈ 1 nanosecond
+
+Instruction execution involves:
+- Fetch
+- Decode
+- Execute
+
+Time is extremely small and cannot be measured with a stopwatch.
+
+--------------------------------------------------------------------
+Role of Operating System
+--------------------------------------------------------------------
+Operating systems are large software systems that provide services via
+system calls. User programs call OS functions to perform tasks.
+
+System calls:
+- Special function calls
+- Defined inside the OS
+
+--------------------------------------------------------------------
+Why We Avoid A-Posteriori in DSA
+--------------------------------------------------------------------
+A-posteriori analysis depends on:
+- Hardware
+- Operating system
+- Programming language
+
+It is not scalable and not comparable. Therefore, theoretical DSA
+prefers A-priori analysis.
+
+--------------------------------------------------------------------
+Key Takeaways
+--------------------------------------------------------------------
+- Algorithm performance is subjective and use-case dependent
+- Different domains use different performance criteria
+- GATE focuses on time and space due to personal computing assumption
+- A-posteriori analysis is practical but machine-dependent
+- A-priori analysis is theoretical, abstract, and machine-independent
+- DSA and competitive exams use A-priori analysis
+
+====================================================================
+End of Notes
+====================================================================
+*/
