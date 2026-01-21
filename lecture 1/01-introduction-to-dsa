@@ -1,0 +1,218 @@
+/*
+====================================================================
+📘 Introduction to Data Structures & Algorithms (Lecture 1)
+====================================================================
+
+This lecture introduces the fundamental building blocks required to
+study Data Structures and Algorithms (DSA). These concepts form the
+base for writing efficient programs and solving real-world problems.
+
+Topics Covered:
+- Variables
+- Data Types
+- Data
+- Data Structures
+- Programs
+- Algorithms
+- Importance of data organization
+
+--------------------------------------------------------------------
+1. Variable
+--------------------------------------------------------------------
+A variable is a container used to store a value in memory.
+
+Key Points:
+- A variable can store only one type of value at a time
+- The type of value depends on the data type
+
+Example (C Language):
+    int x;
+    x = 25;
+
+    float y;
+    y = 5.5;
+
+Here:
+- x stores an integer value
+- y stores a floating-point value
+
+How a value is stored in memory depends on its data type.
+
+--------------------------------------------------------------------
+2. Data Type
+--------------------------------------------------------------------
+A data type specifies:
+- What type of data is stored
+- How much memory is allocated
+- How the compiler interprets the data
+
+Examples:
+    int a;
+    float b;
+
+Why Data Types Are Important:
+- Computers store everything in binary (0s and 1s)
+- The compiler must know:
+  - Whether the data is integer or floating-point
+  - How many bytes are required
+
+Without data types:
+- Memory cannot be interpreted correctly
+- Operations may give incorrect results
+
+--------------------------------------------------------------------
+3. Data
+--------------------------------------------------------------------
+Data is raw information that we want to store, process, or retrieve.
+
+Examples of Data:
+- Numbers
+- Characters
+- Records
+- Input values
+
+Real-world Examples:
+- Student marks
+- Prices
+- Temperatures
+- Identification numbers
+
+--------------------------------------------------------------------
+4. Data Structure
+--------------------------------------------------------------------
+A data structure is a way of storing and organizing data so that it
+can be used efficiently.
+
+Better organization of data leads to easier and faster operations.
+
+Examples of Data Structures:
+- Arrays
+- Files
+- Linked Lists
+- Stacks
+- Queues
+- Trees
+- Graphs
+
+--------------------------------------------------------------------
+5. Why Data Structures Are Needed
+--------------------------------------------------------------------
+Real-Life Analogy:
+- Books arranged properly are easy to find
+- Books scattered randomly are hard to find
+
+Similarly in computers:
+- Organized data leads to faster access
+- Unorganized data leads to inefficient processing
+
+Data structures help in:
+- Efficient storage
+- Easy retrieval
+- Faster processing
+- Cleaner program design
+
+--------------------------------------------------------------------
+6. Classification of Data Structures
+--------------------------------------------------------------------
+Data structures are classified based on how elements are organized.
+
+6.1 Linear Data Structures:
+- Elements are accessed sequentially
+- Memory may or may not be physically sequential
+
+Examples:
+- Arrays
+- Linked Lists
+- Stacks
+- Queues
+
+6.2 Non-Linear Data Structures:
+- Elements are not accessed sequentially
+- Data is organized hierarchically or graph-like
+
+Examples:
+- Trees
+- Graphs
+
+--------------------------------------------------------------------
+7. Program
+--------------------------------------------------------------------
+A program is a set of instructions written to solve a problem.
+
+Key Points:
+- Programs are written in programming languages
+- Programs operate on data
+- Programs internally use data structures
+
+--------------------------------------------------------------------
+8. Algorithm
+--------------------------------------------------------------------
+An algorithm is a step-by-step, clear, and unambiguous procedure
+to solve a given problem.
+
+Characteristics of an Algorithm:
+- Clearly defined steps
+- Finite number of steps
+- Proper sequence
+- Accepts input
+- Produces output
+- Terminates in finite time
+
+--------------------------------------------------------------------
+9. Importance of Sequence in Algorithms
+--------------------------------------------------------------------
+Steps in an algorithm must be executed in the correct order.
+
+Changing the sequence can:
+- Break the solution
+- Increase execution time
+- Produce incorrect results
+
+Examples:
+- Cooking recipes
+- Mathematical procedures
+- Logical problem-solving steps
+
+--------------------------------------------------------------------
+10. Relationship Between Algorithm and Data Structure
+--------------------------------------------------------------------
+When solving a problem:
+- Choose an appropriate data structure
+- Design an algorithm using it
+
+Efficiency depends on:
+- Algorithm design
+- Data structure choice
+- Size of input data
+
+Data structures play a major role in algorithm efficiency.
+
+--------------------------------------------------------------------
+11. Input, Output, and Problem Solving
+--------------------------------------------------------------------
+Every problem consists of:
+- Input: Data given to the program
+- Processing: Algorithm steps
+- Output: Final result
+
+Different algorithms for the same problem may:
+- Take different amounts of time
+- Use different amounts of memory
+
+This leads to the need for algorithm analysis.
+
+--------------------------------------------------------------------
+12. Key Takeaways
+--------------------------------------------------------------------
+- Variables store values
+- Data types define storage and interpretation
+- Data structures organize data efficiently
+- Programs solve problems
+- Algorithms define step-by-step solutions
+- Organization and sequence are critical
+- Efficient data handling improves performance
+
+====================================================================
+End of Lecture 1 Notes
+====================================================================
+*/
