@@ -1,0 +1,110 @@
+/*
+====================================================================
+📘 Properties of an Algorithm & Problem-Solving Mindset
+====================================================================
+
+To decide whether a set of steps qualifies as a valid and good
+algorithm, it must satisfy certain essential properties. An algorithm
+is not just any sequence of instructions; it is a precise, logical,
+and reliable method to solve a problem.
+
+--------------------------------------------------------------------
+Properties of an Algorithm
+--------------------------------------------------------------------
+
+1. Each Step Must Be a Basic Operation
+Every step in an algorithm must be simple, clear, and executable.
+Vague or abstract statements such as “sort the numbers” are not valid
+algorithmic steps unless broken down into basic operations. Each step
+should be something that can be directly performed.
+
+2. Finite Termination
+An algorithm must terminate after a finite number of steps. If a
+process keeps running indefinitely and never stops, it cannot be
+considered an algorithm.
+
+3. At Least One Output
+An algorithm must produce at least one output. Without an output, the
+algorithm has no meaning. For example, checking whether a number is
+prime must produce an output such as YES or NO.
+
+4. Zero or More Inputs
+An algorithm may take:
+- No input (e.g., an alarm system)
+- One input (e.g., checking if a number is prime)
+- Multiple inputs (e.g., sorting a list of numbers)
+
+5. Proper Input–Output Mapping
+For a given set of inputs, the output must be well-defined, fixed, and
+correct. This property ensures the correctness and reliability of the
+algorithm.
+
+6. Platform Independent
+An algorithm must be independent of hardware, operating system, and
+programming language. The logic of the algorithm should work on any
+machine and can be implemented in any language.
+
+7. Unambiguous Steps
+Each step of an algorithm must be clear and unambiguous. There should
+be no room for multiple interpretations. For example, an expression
+like A - B - C is ambiguous unless clearly grouped as (A - B) - C.
+
+--------------------------------------------------------------------
+Algorithm vs Program
+--------------------------------------------------------------------
+An algorithm represents logical steps and problem-solving logic. It is
+language-independent and platform-independent. A program is the actual
+code written in a specific programming language, making it language-
+dependent and platform-dependent. Algorithms focus on logic, while
+programs focus on syntax and implementation.
+
+--------------------------------------------------------------------
+Problem Solving Using Algorithms
+--------------------------------------------------------------------
+Coding is not the first step in problem solving. A correct and
+professional approach follows this flow:
+
+1. Problem Definition
+Understand the problem clearly. Identify what is given and what is
+required.
+
+2. Identify Inputs and Outputs
+Decide all possible inputs and clearly define the expected outputs.
+
+3. Algorithm Design
+Write step-by-step logic while ensuring all algorithm properties are
+satisfied.
+
+4. Testing
+Test the algorithm using multiple inputs and edge cases to detect
+errors early.
+
+5. Optimization
+Improve time efficiency and space efficiency. Always ask whether the
+solution can be made faster or more memory-efficient.
+
+6. Implementation
+Convert the finalized algorithm into code using any suitable
+programming language.
+
+--------------------------------------------------------------------
+Importance of Testing
+--------------------------------------------------------------------
+Errors may occur due to misunderstanding requirements, incorrect
+assumptions, or missing edge cases. Testing helps catch logical
+mistakes, improves reliability, and reduces failures after deployment.
+In real-world software, testing continues even after release.
+
+--------------------------------------------------------------------
+Key Takeaways
+--------------------------------------------------------------------
+- An algorithm must satisfy strict properties to be valid
+- Writing code without understanding the problem leads to failure
+- Proper testing and optimization are essential
+- Strong fundamentals improve problem-solving skills
+- This mindset is crucial for GATE, placements, and real-world software
+
+====================================================================
+End of Notes
+====================================================================
+*/
