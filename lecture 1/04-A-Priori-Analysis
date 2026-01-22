@@ -1,0 +1,173 @@
+/*
+====================================================================
+📘 How to Analyze an Algorithm Before Implementation (A-Priori Analysis)
+====================================================================
+
+Algorithms can be analyzed either after implementation or before
+implementation. When analysis is done after writing and executing the
+program, it is called A-Posteriori analysis. When analysis is done
+before coding, it is called A-Priori analysis. In Data Structures and
+Algorithms (DSA), we primarily use A-Priori analysis because it is
+machine-independent and focuses on logic rather than execution.
+
+--------------------------------------------------------------------
+Framework for A-Priori Analysis
+--------------------------------------------------------------------
+To analyze an algorithm before implementation, a fixed framework is
+followed.
+
+--------------------------------------------------------------------
+Step 1: Hypothetical Language
+--------------------------------------------------------------------
+The algorithm is written in a hypothetical language. This language is
+not C, C++, Java, or Python. It is meant to be easily understandable by
+any computer science student. The focus is purely on logic and clarity,
+not on syntax or language-specific rules.
+
+--------------------------------------------------------------------
+Step 2: Hypothetical CPU Model
+--------------------------------------------------------------------
+We assume a hypothetical CPU with the following properties:
+- Infinite main memory (RAM)
+- Each fundamental operation takes exactly 1 unit of time
+- The actual time unit (nanosecond, millisecond, etc.) is irrelevant
+
+This abstraction helps in comparing algorithms fairly.
+
+--------------------------------------------------------------------
+Fundamental Operations
+--------------------------------------------------------------------
+Fundamental (primitive) operations include:
+- Assignment (=)
+- Arithmetic operations (+, -, *, /)
+- Comparison (<, <=, ==)
+- Increment and decrement
+- Input and output operations
+
+Each fundamental operation is assumed to take 1 unit of time.
+
+--------------------------------------------------------------------
+Step 3: Select a Metric
+--------------------------------------------------------------------
+A metric is chosen to analyze the running time of the algorithm. The
+metric is usually the most frequently executed fundamental operation.
+Different algorithms may use different metrics.
+
+Examples:
+- Sorting algorithms → number of comparisons
+- Matrix multiplication → number of multiplications
+- Searching algorithms → number of comparisons
+
+--------------------------------------------------------------------
+Step 4: Categorization of Running Time
+--------------------------------------------------------------------
+The running time is expressed using asymptotic notations such as:
+- Big-O (O)
+- Big-Omega (Ω)
+- Big-Theta (Θ)
+
+These notations describe the growth rate of an algorithm as input size
+increases.
+
+--------------------------------------------------------------------
+Two Ways of A-Priori Analysis
+--------------------------------------------------------------------
+There are two commonly used methods:
+1. Step Count Method
+2. Order of Magnitude (Order of Growth)
+
+--------------------------------------------------------------------
+Step Count Method
+--------------------------------------------------------------------
+In this method, we count how many times each fundamental operation is
+executed.
+
+Example 1: Single Loop
+for(i = 1; i <= n; i++)
+{
+    x = x + 1;
+}
+
+The loop runs n times and the work inside the loop is constant.
+Running time = n
+
+Example 2: Nested Loops
+for(i = 1; i <= n; i++)
+{
+    for(j = 1; j <= n; j++)
+    {
+        a = b * c;
+    }
+}
+
+The outer loop runs n times and the inner loop also runs n times.
+Total operations = n × n = n²
+
+--------------------------------------------------------------------
+Order of Magnitude (Order of Growth)
+--------------------------------------------------------------------
+In this approach:
+- Constant terms are ignored
+- Lower-order terms are ignored
+- Only the dominant term is considered
+
+Example:
+6n² + 10n + 6
+
+The dominant term is n², so the time complexity is:
+O(n²)
+
+--------------------------------------------------------------------
+Time Complexity
+--------------------------------------------------------------------
+Time complexity quantifies the amount of CPU time taken by an algorithm
+as a function of input size (n). In DSA, time always refers to CPU time
+and is measured before implementation using A-Priori analysis.
+
+--------------------------------------------------------------------
+Space Complexity
+--------------------------------------------------------------------
+Space complexity quantifies the amount of memory required by an
+algorithm as a function of input size (n). It includes:
+- Variables
+- Data structures
+- Auxiliary space
+
+--------------------------------------------------------------------
+Classification Based on Growth Rate
+--------------------------------------------------------------------
+Polynomial Time Algorithms:
+- O(n)
+- O(n²)
+- O(n³)
+
+Exponential Time Algorithms:
+- O(2ⁿ)
+- O(3ⁿ)
+
+Exponential algorithms do not scale well for large inputs.
+
+--------------------------------------------------------------------
+Key Idea Emphasized
+--------------------------------------------------------------------
+While analyzing algorithms:
+- Ignore small constant operations
+- Focus on where maximum time is spent
+- Concentrate on the most frequently executed operation
+
+This is why order of growth is more important than exact operation
+counts.
+
+--------------------------------------------------------------------
+Final Summary
+--------------------------------------------------------------------
+Algorithms are analyzed before coding using A-Priori analysis. A
+hypothetical CPU model is assumed, fundamental operations are counted,
+and time and space are expressed as functions of input size. Growth rate
+matters more than exact execution time. This forms the foundation of
+time and space complexity analysis in DSA.
+
+====================================================================
+End of Notes
+====================================================================
+*/
