@@ -1,0 +1,222 @@
+/*
+====================================================================
+📘 Big-O Questions (Teacher Style – English Explanation)
+====================================================================
+
+QUESTION 1
+
+Given:
+f(n) = n
+g(n) = 3n + 2
+
+--------------------------------------------------
+Part 1: Check f(n) = O(g(n)) ?
+--------------------------------------------------
+
+Teacher says:
+“Big-O simply means less than or equal to (after some point).”
+
+So first thing we write:
+f(n) ≤ g(n)
+
+Substitute values:
+n ≤ 3n + 2
+
+Now teacher checks values:
+n = 1 → 1 ≤ 5  ✔
+n = 2 → 2 ≤ 8  ✔
+n = 5 → 5 ≤ 17 ✔
+
+Teacher explains:
+“This inequality is already true.
+I don’t even need a constant here.”
+
+So we take:
+c = 1
+n₀ = 1
+
+Teacher conclusion:
+f(n) = O(g(n))
+
+--------------------------------------------------
+Part 2: Check g(n) = O(f(n)) ?
+--------------------------------------------------
+
+Teacher says:
+“Now reverse it. This is where students usually get confused.”
+
+We need:
+3n + 2 ≤ c · n
+
+Try small constant:
+Take c = 3
+
+3n + 2 ≤ 3n   ❌
+
+Teacher says:
+“This will never work. So increase c.”
+
+Take c = 4:
+3n + 2 ≤ 4n
+2 ≤ n
+
+Now teacher checks values:
+n = 1 ❌
+n = 2 ✔
+n = 3 ✔
+n = 10 ✔
+
+Teacher explains:
+“Some initial values may fail, I don’t care.
+After n₀ = 2, this relation is always true.”
+
+So we choose:
+c = 4
+n₀ = 2
+
+Teacher conclusion:
+g(n) = O(f(n))
+
+====================================================================
+
+QUESTION 2
+
+Given:
+f(n) = n²
+g(n) = 5n² + 6n + 2
+
+--------------------------------------------------
+Check: g(n) = O(f(n)) ?
+--------------------------------------------------
+
+Teacher says:
+“Clearly, n² is the dominating term.”
+
+We write:
+5n² + 6n + 2 ≤ c · n²
+
+Now teacher picks a constant:
+Take c = 6
+
+5n² + 6n + 2 ≤ 6n²
+
+Move terms:
+6n + 2 ≤ n²
+
+Teacher checks values:
+n = 5 → 27 ≤ 25 ❌
+n = 6 → 38 ≤ 36 ❌
+n = 7 → 44 ≤ 49 ✔
+
+Teacher says:
+“From n = 7 onward, it is always true.”
+
+So:
+c = 6
+n₀ = 7
+
+Teacher conclusion:
+5n² + 6n + 2 = O(n²)
+
+====================================================================
+
+QUESTION 3
+
+Given:
+f(n) = n
+g(n) = n²
+
+--------------------------------------------------
+Part 1: Check f(n) = O(g(n)) ?
+--------------------------------------------------
+
+We write:
+n ≤ c · n²
+
+Take c = 1:
+n ≤ n²
+
+Check:
+n = 1 ✔
+n = 2 ✔
+n = 10 ✔
+
+Teacher says:
+“This is obvious.”
+
+So:
+c = 1
+n₀ = 1
+
+Teacher conclusion:
+n = O(n²)
+
+--------------------------------------------------
+Part 2: Check g(n) = O(f(n)) ?
+--------------------------------------------------
+
+We write:
+n² ≤ c · n
+
+Simplify:
+n ≤ c
+
+Teacher explains:
+“No matter how large c you take,
+I can always choose n bigger than c.”
+
+Teacher conclusion:
+n² is NOT O(n)
+
+====================================================================
+
+QUESTION 4
+
+Given:
+f(n) = 1000n
+g(n) = n²
+
+--------------------------------------------------
+Check: f(n) = O(g(n)) ?
+--------------------------------------------------
+
+We write:
+1000n ≤ c · n²
+
+Take c = 1:
+1000 ≤ n
+
+Teacher checks:
+n = 1000 ✔
+n = 2000 ✔
+
+So:
+c = 1
+n₀ = 1000
+
+Teacher conclusion:
+1000n = O(n²)
+
+--------------------------------------------------
+Reverse Check: Is n² = O(1000n) ?
+--------------------------------------------------
+
+We write:
+n² ≤ c · 1000n
+
+Simplify:
+n ≤ 1000c
+
+Teacher explains:
+“For any constant c,
+I can always take n larger than 1000c.”
+
+So this relation can never hold permanently.
+
+Teacher conclusion:
+n² is NOT O(n)
+
+====================================================================
+End of Teacher-Style Big-O Questions
+====================================================================
+*/
