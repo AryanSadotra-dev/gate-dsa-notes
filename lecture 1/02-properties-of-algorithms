@@ -68,22 +68,26 @@ professional approach follows this flow:
 Understand the problem clearly. Identify what is given and what is
 required.
 
-2. Identify Inputs and Outputs
+2. Development of Model
+Design a Data Flow Diagram (DFD) or an appropriate model to describe
+the problem in graphical form.
+
+3. Identify Inputs and Outputs
 Decide all possible inputs and clearly define the expected outputs.
 
-3. Algorithm Design
+4. Algorithm Design
 Write step-by-step logic while ensuring all algorithm properties are
 satisfied.
 
-4. Testing
+5. Testing
 Test the algorithm using multiple inputs and edge cases to detect
 errors early.
 
-5. Optimization
+6. Optimization
 Improve time efficiency and space efficiency. Always ask whether the
 solution can be made faster or more memory-efficient.
 
-6. Implementation
+7. Implementation
 Convert the finalized algorithm into code using any suitable
 programming language.
 
