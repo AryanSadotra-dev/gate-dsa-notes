@@ -9,6 +9,10 @@ notations. The notations themselves (Big-O, Big-Ω, Big-Θ, etc.) are NOT
 introduced here. Instead, the lecture focuses on answering one key
 question: WHY do we need asymptotic notations in algorithm analysis?
 
+In simple words 👉
+They help us measure and compare the efficiency of algorithms without
+worrying about exact execution time or machine details.
+
 --------------------------------------------------------------------
 1. Why This Topic Is Important
 --------------------------------------------------------------------
