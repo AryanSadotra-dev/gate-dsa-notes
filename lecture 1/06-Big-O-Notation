@@ -1,0 +1,184 @@
+/*
+====================================================================
+📘 Lecture 1: Analysis of Algorithms – Big-O Notation
+====================================================================
+
+This lecture introduces Big-O notation, the most fundamental asymptotic
+notation used in algorithm analysis. Big-O helps us compare algorithms
+based on how their running time grows with input size, rather than
+exact execution time.
+
+--------------------------------------------------------------------
+1. Why Do We Need Notations?
+--------------------------------------------------------------------
+For a single problem, there can be multiple correct algorithms. To
+compare them meaningfully, we need a standard way to describe their
+performance. Performance mainly depends on the input size (n) and how
+the running time grows as n increases. Asymptotic notations provide a
+mathematical way to express this growth.
+
+There are five asymptotic notations:
+- Big-O (O)
+- Big-Omega (Ω)
+- Big-Theta (Θ)
+- Small-o (o)
+- Small-omega (ω)
+
+In this lecture, only Big-O notation is studied.
+
+--------------------------------------------------------------------
+2. What Is Big-O Notation?
+--------------------------------------------------------------------
+Big-O is not a formula; it is a relationship between two functions.
+
+Let:
+- f(n) be the running time of an algorithm
+- g(n) be a reference function
+
+Then:
+f(n) = O(g(n))
+
+is read as “f of n is Big-O of g of n”.
+
+--------------------------------------------------------------------
+3. Meaning of Big-O (Core Idea)
+--------------------------------------------------------------------
+Big-O describes an upper bound on growth. It tells us that for
+sufficiently large input size, the growth of f(n) will not exceed the
+growth of g(n), possibly after multiplying g(n) by a positive constant.
+In simple terms, g(n) grows as fast as or faster than f(n) eventually.
+
+--------------------------------------------------------------------
+4. Formal Definition of Big-O
+--------------------------------------------------------------------
+Given two functions f(n) and g(n), f(n) = O(g(n)) if and only if there
+exist:
+- a positive constant c
+- a positive value n₀
+
+such that:
+f(n) ≤ c · g(n) for all n ≥ n₀
+
+--------------------------------------------------------------------
+5. Meaning of Each Term
+--------------------------------------------------------------------
+Constant c:
+- Used to adjust scale
+- Can be any positive value
+- Exact value does not matter
+
+Threshold n₀:
+- A specific input size
+- After this point, the inequality must always hold
+- Behavior before n₀ is ignored
+
+“For all n ≥ n₀”:
+- Big-O focuses only on large input sizes
+- Small inputs are irrelevant
+
+--------------------------------------------------------------------
+6. Important Rule About Input Size (n)
+--------------------------------------------------------------------
+In algorithms:
+- n represents the number of inputs
+- n ≥ 1
+Negative or fractional values of n are not allowed.
+
+--------------------------------------------------------------------
+7. Big-O Is an Upper Bound (Very Important)
+--------------------------------------------------------------------
+Big-O always represents an upper bound:
+f(n) ≤ c · g(n)
+
+It does not mean equality or exact running time. It only describes
+worst-case growth behavior.
+
+--------------------------------------------------------------------
+8. Two Possible Scenarios (Key Logic)
+--------------------------------------------------------------------
+Case 1: g(n) is already greater than or equal to f(n)
+If f(n) ≤ g(n), then choose c = 1 and the relationship holds directly.
+
+Example:
+f(n) = n
+g(n) = 3n + 2
+Since 3n + 2 ≥ n for all n ≥ 1, f(n) = O(g(n)).
+
+Case 2: g(n) is smaller than f(n) initially
+If g(n) < f(n) for some values of n, choose a constant c such that
+f(n) ≤ c · g(n) holds after some threshold n₀.
+
+--------------------------------------------------------------------
+9. Example with Constant Adjustment
+--------------------------------------------------------------------
+Let:
+f(n) = n
+g(n) = 3n + 2
+
+Choosing c = 4:
+4(3n + 2) = 12n + 8
+
+Now:
+n ≤ 12n + 8 for all n ≥ 1
+
+Thus, f(n) = O(g(n)).
+
+--------------------------------------------------------------------
+10. Very Important Clarification (Exam Favorite)
+--------------------------------------------------------------------
+After choosing constant c, it is allowed that c · g(n) < f(n) for some
+small values of n. This does not violate Big-O. What matters is that
+f(n) ≤ c · g(n) for all n ≥ n₀.
+
+--------------------------------------------------------------------
+11. Graphical Interpretation
+--------------------------------------------------------------------
+On a graph:
+- X-axis represents input size n
+- Y-axis represents running time
+
+The curves f(n) and c · g(n) may intersect multiple times. However,
+after a certain point n₀, c · g(n) always stays above or equal to f(n).
+This point is called the threshold n₀.
+
+--------------------------------------------------------------------
+12. Why Initial Values Don’t Matter
+--------------------------------------------------------------------
+Big-O focuses on long-term behavior and scalability. For small input
+sizes, constants, hardware, and implementation details dominate.
+Therefore, initial values are ignored.
+
+--------------------------------------------------------------------
+13. Step-by-Step Method to Prove Big-O
+--------------------------------------------------------------------
+To prove f(n) = O(g(n)):
+
+Step 1:
+Check if f(n) ≤ g(n). If yes, choose c = 1.
+
+Step 2:
+If not, choose a positive constant c such that f(n) ≤ c · g(n).
+
+Step 3:
+Find a value n₀ such that f(n) ≤ c · g(n) for all n ≥ n₀.
+
+If such c and n₀ exist, Big-O is proven.
+
+--------------------------------------------------------------------
+14. Final Summary
+--------------------------------------------------------------------
+Big-O is a relationship, not a numeric value. It provides an upper bound
+on growth, allows constants, ignores initial values, and focuses only
+on behavior after a threshold n₀. It is used to compare algorithm
+efficiency.
+
+--------------------------------------------------------------------
+15. Key One-Line Definition (Exam-Ready)
+--------------------------------------------------------------------
+f(n) = O(g(n)) if there exist positive constants c and n₀ such that
+f(n) ≤ c · g(n) for all n ≥ n₀.
+
+====================================================================
+End of Lecture Notes
+====================================================================
+*/
