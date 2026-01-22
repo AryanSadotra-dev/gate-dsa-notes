@@ -1,0 +1,167 @@
+/*
+====================================================================
+📘 Lecture 1: Background of Asymptotic Notations
+(Analysis of Algorithms)
+====================================================================
+
+This lecture builds the foundation required to understand asymptotic
+notations. The notations themselves (Big-O, Big-Ω, Big-Θ, etc.) are NOT
+introduced here. Instead, the lecture focuses on answering one key
+question: WHY do we need asymptotic notations in algorithm analysis?
+
+--------------------------------------------------------------------
+1. Why This Topic Is Important
+--------------------------------------------------------------------
+Asymptotic notations form the base of the entire Data Structures and
+Algorithms subject. If this background is clear, then concepts such as
+time complexity, space complexity, and algorithm comparison become easy
+and intuitive. From an exam perspective, especially GATE, at least
+2–3 questions are directly or indirectly related to this topic.
+
+--------------------------------------------------------------------
+2. What Are We Trying To Do?
+--------------------------------------------------------------------
+We want a method to represent:
+- Time complexity
+- Space complexity
+
+For very large input sizes, in a way that is independent of the machine,
+compiler, or programming language. This representation is achieved
+using asymptotic notations.
+
+--------------------------------------------------------------------
+3. Meaning of “Asymptotic”
+--------------------------------------------------------------------
+The word “asymptotic” comes from the mathematical concept of an
+asymptote. An asymptote is a line that a curve approaches as it extends
+towards infinity.
+
+Example:
+For the curve y = 1/x, as x → ∞, the curve approaches the x-axis and
+y-axis. These axes bound the curve at infinity, even though the curve
+never crosses them.
+
+Thus, asymptotic means studying the behavior of a function at infinity.
+
+--------------------------------------------------------------------
+4. Why “Infinity” Matters in Algorithms
+--------------------------------------------------------------------
+Algorithms are not written for very small inputs like 5, 10, or 20.
+If the input size is small, humans can often solve the problem manually,
+making algorithms unnecessary. Algorithms are written for very large
+inputs, where the input size tends towards infinity. Therefore, while
+analyzing algorithms, we focus on the behavior when n → ∞, not for
+small values of n.
+
+--------------------------------------------------------------------
+5. What Is Being Analysed?
+--------------------------------------------------------------------
+We analyze:
+- The time required by an algorithm
+- The space required by an algorithm
+
+Both are analyzed as functions of input size (n). This idea was already
+introduced in A-Priori analysis.
+
+--------------------------------------------------------------------
+6. Comparing Algorithms Using Functions
+--------------------------------------------------------------------
+Consider two algorithms:
+A₁: Time = n² + n + 1
+A₂: Time = n²
+
+For small values of n, n² + n + 1 is greater than n², so A₁ appears to
+take more time. However, when n → ∞, the n² term dominates and the n and
+constant terms become negligible. Asymptotically, both algorithms behave
+like n² and are considered to have the same time complexity.
+
+--------------------------------------------------------------------
+7. Dominating Term Concept
+--------------------------------------------------------------------
+When the input size is very large:
+- The highest power of n dominates
+- Lower powers of n are ignored
+- Constant terms are ignored
+
+Example:
+n² + n + 1000 → n²
+
+Only the dominating term matters for asymptotic analysis.
+
+--------------------------------------------------------------------
+8. Constants Do Not Matter
+--------------------------------------------------------------------
+As n → ∞:
+n, 2n, n/100, and 1000n all grow at the same rate asymptotically.
+Multiplication or division by constants does not affect growth, because
+a constant multiplied by infinity is still infinity. Hence, constants
+are ignored in asymptotic analysis.
+
+--------------------------------------------------------------------
+9. Example: n vs 2n
+--------------------------------------------------------------------
+Algorithm A₁: Time = n
+Algorithm A₂: Time = 2n
+
+Mathematically, A₂ takes twice the time. Asymptotically, both grow
+linearly and are treated as the same, because their growth rates are
+identical for very large n.
+
+--------------------------------------------------------------------
+10. Example: n vs 10000n
+--------------------------------------------------------------------
+For small inputs, 10000n is much larger than n. For very large inputs,
+both grow linearly and the difference becomes insignificant.
+Asymptotically, n and 10000n are considered equivalent.
+
+--------------------------------------------------------------------
+11. Why Exact Time Is Not Needed
+--------------------------------------------------------------------
+Exact execution time depends on CPU speed, memory, compiler, and machine
+architecture. We do not want machine-dependent analysis. Instead, we
+want a machine-independent way to compare algorithms. That is why
+constants are ignored and exact counts are avoided.
+
+--------------------------------------------------------------------
+12. Machine Independence (Very Important)
+--------------------------------------------------------------------
+Asymptotic analysis ensures that the same algorithm has the same
+complexity on different machines. Without machine independence,
+algorithm analysis would be meaningless.
+
+--------------------------------------------------------------------
+13. Final Conclusions of the Lecture
+--------------------------------------------------------------------
+- Analysis is done for very large input sizes
+- Constants do not matter
+- Only the dominating term matters
+- Exact execution time is not required
+- Analysis must be machine independent
+
+Asymptotic notations help represent time and space complexity in a clean
+and mathematical way.
+
+--------------------------------------------------------------------
+14. Why We Need Asymptotic Notations (One Line)
+--------------------------------------------------------------------
+Asymptotic notations are mathematical tools used to represent time and
+space complexity of algorithms for very large inputs, independent of
+machine specifications.
+
+--------------------------------------------------------------------
+15. Notations to Be Studied (Next Lectures)
+--------------------------------------------------------------------
+The five asymptotic notations are:
+- Big-O (O)
+- Big-Omega (Ω)
+- Big-Theta (Θ)
+- Small-o
+- Small-omega (ω)
+
+These notations are NOT introduced in this lecture. This lecture only
+builds the background required to understand them.
+
+====================================================================
+End of Lecture Notes
+====================================================================
+*/
