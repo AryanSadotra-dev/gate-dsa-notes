@@ -1,0 +1,416 @@
+/*
+====================================================================
+📘 Lecture: Big-Omega (Ω) Notation
+(Analysis of Algorithms – Teacher’s Way)
+====================================================================
+
+This lecture is about BIG-OMEGA (Ω).
+
+⚠️ This is NOT a shortcut lecture.
+⚠️ This is NOT about memorizing formulas.
+⚠️ This is NOT about jumping to answers.
+
+This lecture builds:
+- Intuition
+- Graphical understanding
+- Formal definition
+- Constant & n₀ logic
+- Proofs
+- Failed cases
+- Final conclusions
+
+--------------------------------------------------------------------
+1. Background Before Definition (Very Important)
+--------------------------------------------------------------------
+Before reading the definition of Big-Omega, the teacher first builds
+the BACKGROUND.
+
+In the previous lectures:
+- Big-O was completed properly
+- We understood growth of functions
+- We used graphs to understand comparisons
+
+Now we do the SAME thing for Big-Omega.
+
+Do NOT rush to the definition.
+First understand WHAT Big-Omega is trying to say.
+
+--------------------------------------------------------------------
+2. What Are We Comparing?
+--------------------------------------------------------------------
+We always compare TWO functions:
+
+- f(n) → running time of algorithm
+- g(n) → reference function
+
+x-axis  → input size (n)
+y-axis  → running time
+
+We DO NOT care about:
+- small inputs
+- behavior before n₀
+
+We ONLY care about:
+👉 behavior AFTER n₀
+
+This idea is EXTREMELY important.
+
+--------------------------------------------------------------------
+3. Graphical Understanding (Free Style Explanation)
+--------------------------------------------------------------------
+Consider a function f(n).
+
+This function:
+- goes up
+- goes down
+- fluctuates
+- behaves randomly
+
+But after a certain point n₀:
+👉 its behavior becomes predictable.
+
+In Big-Omega:
+We want to make sure that AFTER n₀:
+
+f(n) is ALWAYS
+GREATER THAN OR EQUAL TO
+c · g(n)
+
+Before n₀:
+- f(n) can be anything
+- c·g(n) can be anything
+- we DO NOT CARE
+
+Teacher repeatedly says:
+👉 “Before n₀, my eyes are closed.”
+
+--------------------------------------------------------------------
+4. Core Intuition of Big-Omega
+--------------------------------------------------------------------
+Big-Omega talks about a **LOWER BOUND**.
+
+Meaning:
+- The algorithm will NOT run faster than this
+- It will take AT LEAST this much time
+
+So Big-Omega answers:
+👉 “What is the minimum guaranteed growth?”
+
+--------------------------------------------------------------------
+5. Symbolic Meaning
+--------------------------------------------------------------------
+Big-Omega uses:
+
+≥   (greater than or equal to)
+
+Big-O used:
+≤   (less than or equal to)
+
+This is the KEY difference.
+
+--------------------------------------------------------------------
+6. Formal Definition of Big-Omega (Ω)
+--------------------------------------------------------------------
+Given two functions f(n) and g(n):
+
+We say:
+
+f(n) = Ω(g(n))
+
+IF AND ONLY IF:
+
+There exists:
+- a positive constant c
+- a value n₀
+
+Such that:
+
+f(n) ≥ c · g(n)    for all n ≥ n₀
+
+--------------------------------------------------------------------
+7. Meaning of Each Term (Very Important)
+--------------------------------------------------------------------
+- c → positive constant (can be small or large)
+- n₀ → threshold point
+- for all n ≥ n₀ → forever after that point
+
+If EVEN ONE value after n₀ violates the inequality:
+👉 Big-Omega relation FAILS.
+
+--------------------------------------------------------------------
+8. Graphical Visualization
+--------------------------------------------------------------------
+On the graph:
+
+- f(n) curve is ABOVE c·g(n)
+- After n₀, they NEVER cross
+- Touching is allowed
+- Crossing is NOT allowed
+
+If f(n) goes below c·g(n) after n₀:
+❌ Not Big-Omega
+
+--------------------------------------------------------------------
+9. Question 1
+--------------------------------------------------------------------
+Given:
+f(n) = 3n + 2
+g(n) = n
+
+Check:
+f(n) = Ω(g(n)) ?
+
+--------------------------------------------------------------------
+10. Proof Logic (Teacher Flow)
+--------------------------------------------------------------------
+We must prove:
+
+3n + 2 ≥ c · n   for all n ≥ n₀
+
+Choose:
+c = 1
+
+Then inequality becomes:
+3n + 2 ≥ n
+
+This is TRUE for:
+n ≥ 1
+
+So:
+c = 1
+n₀ = 1
+
+Hence:
+f(n) = Ω(n)
+
+--------------------------------------------------------------------
+11. Reverse Check (Very Important)
+--------------------------------------------------------------------
+Now check:
+g(n) = Ω(f(n)) ?
+
+That means:
+n ≥ c(3n + 2)
+
+This is NOT possible for all n ≥ n₀.
+
+No matter what constant c you choose:
+3n + 2 grows faster than n.
+
+Hence:
+g(n) ≠ Ω(f(n))
+
+--------------------------------------------------------------------
+12. Question 2
+--------------------------------------------------------------------
+Given:
+f(n) = 5n² + 6n + 2
+g(n) = n²
+
+Check:
+f(n) = Ω(g(n)) ?
+
+--------------------------------------------------------------------
+13. Direct Observation
+--------------------------------------------------------------------
+Dominating term of f(n) is n².
+
+So intuitively:
+f(n) SHOULD be Ω(n²).
+
+Now prove it formally.
+
+--------------------------------------------------------------------
+14. Formal Proof
+--------------------------------------------------------------------
+We want:
+5n² + 6n + 2 ≥ c · n²
+
+Choose:
+c = 1
+
+Then:
+5n² + 6n + 2 ≥ n²
+
+This holds for:
+n ≥ 1
+
+So:
+c = 1
+n₀ = 1
+
+Hence:
+f(n) = Ω(n²)
+
+--------------------------------------------------------------------
+15. Reverse Direction
+--------------------------------------------------------------------
+Check:
+n² = Ω(5n² + 6n + 2) ?
+
+Try constants.
+
+No matter how large n becomes:
+n² cannot dominate 5n² + 6n + 2.
+
+So:
+n² ≠ Ω(f(n))
+
+--------------------------------------------------------------------
+16. Question 3 (Failure Case)
+--------------------------------------------------------------------
+Given:
+f(n) = 1000n
+g(n) = n²
+
+Check:
+f(n) = Ω(g(n)) ?
+
+We need:
+1000n ≥ c · n²
+
+Rearrange:
+1000 ≥ c · n
+
+This CANNOT hold for all n ≥ n₀.
+
+As n increases, RHS grows infinitely.
+
+So:
+❌ f(n) ≠ Ω(n²)
+
+--------------------------------------------------------------------
+17. Reverse Case
+--------------------------------------------------------------------
+Check:
+n² = Ω(1000n)
+
+Try:
+n² ≥ c · 1000n
+
+Choose:
+c = 1
+
+Then:
+n² ≥ 1000n
+n ≥ 1000
+
+So:
+c = 1
+n₀ = 1000
+
+Hence:
+n² = Ω(1000n)
+
+--------------------------------------------------------------------
+18. Constant Time Case
+--------------------------------------------------------------------
+Question:
+If time taken by algorithm is independent of input size,
+what is its Big-Omega?
+
+Let:
+f(n) = 1000
+
+We want:
+1000 ≥ c · 1
+
+Choose:
+c = 1
+n₀ = 1
+
+Hence:
+f(n) = Ω(1)
+
+So:
+Any constant time algorithm is Ω(1).
+
+--------------------------------------------------------------------
+19. Important Insight
+--------------------------------------------------------------------
+Ω(1) does NOT mean time = 1.
+
+It means:
+Time is AT LEAST constant.
+
+1000, 5000, 10 → all are Ω(1).
+
+--------------------------------------------------------------------
+20. Dominating Term Rule (Teacher Rule)
+--------------------------------------------------------------------
+For Big-Omega:
+👉 Always take the DOMINATING TERM.
+
+Example:
+5n² + 6n + 2 → Ω(n²)
+
+Lower terms do NOT matter.
+
+--------------------------------------------------------------------
+21. Very Important Concept
+--------------------------------------------------------------------
+Ω does NOT represent a single function.
+
+Ω represents a SET of functions.
+
+Example:
+If f(n) = 5n² + 6n + 2
+
+Then f(n) is:
+Ω(n²)
+Ω(n)
+Ω(log n)
+Ω(1)
+
+All smaller or equal growth functions are valid.
+
+--------------------------------------------------------------------
+22. Comparison with Big-O (Conceptual Only)
+--------------------------------------------------------------------
+- Big-O → Upper Bound
+- Big-Omega → Lower Bound
+
+Big-Omega guarantees:
+“The algorithm will NOT be faster than this.”
+
+--------------------------------------------------------------------
+23. Stock Market Analogy (Teacher Analogy)
+--------------------------------------------------------------------
+Think of a graph fluctuating.
+
+- Upper boundary → Big-O
+- Lower boundary → Big-Omega
+
+The function may move up and down,
+but it NEVER crosses the lower bound.
+
+--------------------------------------------------------------------
+24. Final Conclusions
+--------------------------------------------------------------------
+- Big-Omega gives a LOWER bound
+- Constants do not matter
+- Dominating term matters
+- Before n₀ behavior is irrelevant
+- Ω represents infinite functions
+- It guarantees minimum growth
+
+--------------------------------------------------------------------
+25. One-Line Definition
+--------------------------------------------------------------------
+Big-Omega (Ω) represents the set of functions
+that grow AT LEAST as fast as a given function
+for sufficiently large input size.
+
+--------------------------------------------------------------------
+26. What Comes Next
+--------------------------------------------------------------------
+Next lecture:
+Big-Theta (Θ)
+
+- Tight Bound
+- Combination of O and Ω
+
+====================================================================
+End of Big-Omega Lecture Notes
+====================================================================
+*/
