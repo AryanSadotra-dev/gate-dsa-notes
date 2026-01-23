@@ -294,6 +294,16 @@ But NOT:
 
 Because higher power grows faster.
 
+Final Default Order List top to bottom :
+O(n!)
+O(2^n)
+O(n^k)   (k ≥ 3)
+O(n^2)
+O(n log n)
+O(n)
+O(log n)
+O(1)
+
 --------------------------------------------------------------------
 24. Growth Rate Analogy (Teacher’s Analogy)
 --------------------------------------------------------------------
