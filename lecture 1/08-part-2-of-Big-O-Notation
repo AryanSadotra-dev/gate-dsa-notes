@@ -1,0 +1,336 @@
+/*
+====================================================================
+📘 Lecture: Big-O Notation (Questions, Proofs & Deep Understanding)
+(Analysis of Algorithms)
+====================================================================
+
+This lecture is the FINAL lecture on Big-O notation.
+Previous lectures covered:
+- Basic idea of asymptotic analysis
+- Meaning of order
+- Dominating term concept
+
+In this lecture:
+- We solve QUESTIONS
+- We build INTUITION
+- We derive CONCLUSIONS
+- We understand what Big-O REALLY represents
+
+⚠️ This lecture is NOT about memorizing formulas.
+It is about understanding growth and comparison of functions.
+
+--------------------------------------------------------------------
+1. Question 1
+--------------------------------------------------------------------
+Q. If the time taken by an algorithm is independent of input size,
+   then what is its time complexity? How do we represent it?
+
+--------------------------------------------------------------------
+2. Understanding the Scenario
+--------------------------------------------------------------------
+If input size increases or decreases,
+but execution time remains SAME,
+then the algorithm takes CONSTANT TIME.
+
+Example:
+- Input size = 10    → constant time
+- Input size = 100   → constant time
+- Input size = 1000  → constant time
+- Input size = 10000 → constant time
+
+CPU speed may differ:
+- 1 millisecond
+- 1 microsecond
+- 1 nanosecond
+
+But the IMPORTANT point:
+👉 Time does NOT depend on input size.
+
+--------------------------------------------------------------------
+3. Algorithm Example (Very Important)
+--------------------------------------------------------------------
+Given a SORTED array A.
+
+Algorithm:
+return A[0];
+
+Explanation:
+- First element is always the smallest
+- No loop
+- No recursion
+- Only ONE operation
+
+No matter how large the array is,
+execution time remains constant.
+
+--------------------------------------------------------------------
+4. Representing Time as a Function
+--------------------------------------------------------------------
+We represent time as a function of input size n.
+
+Since time is constant:
+f(n) = 100
+
+(100 is just an example; any constant works)
+
+--------------------------------------------------------------------
+5. Choosing g(n)
+--------------------------------------------------------------------
+Constant time is represented using:
+g(n) = 1
+
+We want to prove:
+f(n) = O(1)
+
+--------------------------------------------------------------------
+6. Applying Big-O Definition
+--------------------------------------------------------------------
+Big-O definition:
+
+f(n) ≤ c · g(n)   for all n ≥ n₀
+
+Substitute values:
+100 ≤ c · 1
+100 ≤ c
+
+Choose:
+c = 100
+n₀ = 1
+
+Hence:
+f(n) = O(1)
+
+--------------------------------------------------------------------
+7. Important Insight
+--------------------------------------------------------------------
+O(1) does NOT mean time = 1.
+
+O(1) means:
+Time is CONSTANT.
+
+All of these belong to O(1):
+- 5
+- 10
+- 100
+- 1000
+- 100000
+
+--------------------------------------------------------------------
+8. Big-O Represents a SET of Functions
+--------------------------------------------------------------------
+O(1) is NOT a single function.
+
+It represents:
+{5, 10, 50, 100, 1000, ...}
+
+Any function independent of n belongs to O(1).
+
+--------------------------------------------------------------------
+9. Question 2
+--------------------------------------------------------------------
+Q. If f(n) = n² + n + 1 and g(n) = n²,
+   then what is the order of f(n)?
+
+--------------------------------------------------------------------
+10. Dominating Term Concept
+--------------------------------------------------------------------
+As n → ∞:
+- n² dominates n
+- n² dominates constant
+
+So:
+n² + n + 1 behaves like n²
+
+--------------------------------------------------------------------
+11. Formal Proof Using Big-O
+--------------------------------------------------------------------
+We want:
+n² + n + 1 ≤ c · n²   for all n ≥ n₀
+
+Choose:
+c = 2
+
+Then:
+n² + n + 1 ≤ 2n²
+n + 1 ≤ n²
+
+This holds for n ≥ 2.
+
+Hence:
+f(n) = O(n²)
+
+--------------------------------------------------------------------
+12. Question 3
+--------------------------------------------------------------------
+Q. If f(n) = 2n + 3, then what is its order?
+
+--------------------------------------------------------------------
+13. Intuition First
+--------------------------------------------------------------------
+Dominating term is n.
+
+So order should be O(n).
+
+--------------------------------------------------------------------
+14. Formal Proof
+--------------------------------------------------------------------
+2n + 3 ≤ c · n
+
+Choose:
+c = 3
+
+Then:
+2n + 3 ≤ 3n
+3 ≤ n
+
+True for n ≥ 3.
+
+Hence:
+f(n) = O(n)
+
+--------------------------------------------------------------------
+15. Important Logical Conclusion
+--------------------------------------------------------------------
+If f(n) = O(n),
+then f(n) is ALSO:
+- O(n²)
+- O(n³)
+- O(n⁴)
+- ...
+
+Because:
+n ≤ n² ≤ n³ ≤ ...
+
+Big-O gives an UPPER BOUND.
+
+--------------------------------------------------------------------
+16. Very Important Concept
+--------------------------------------------------------------------
+Big-O does NOT represent a single function.
+It represents a SET of functions.
+
+Example:
+O(n) includes:
+- n
+- 2n
+- n/10
+- n + 100
+- 1000n + 50
+
+--------------------------------------------------------------------
+17. Question 4 (Logarithmic Functions)
+--------------------------------------------------------------------
+Q. Compare log n and n.
+
+--------------------------------------------------------------------
+18. Understanding Using Values
+--------------------------------------------------------------------
+Take log base 2.
+
+n = 2   → log n = 1
+n = 4   → log n = 2
+n = 8   → log n = 3
+n = 16  → log n = 4
+n = 1024 → log n = 10
+
+But n grows as:
+2, 4, 8, 16, 1024
+
+--------------------------------------------------------------------
+19. Growth Comparison
+--------------------------------------------------------------------
+If input size doubles:
+- log n increases by 1
+- n doubles
+
+So n grows MUCH faster than log n.
+
+--------------------------------------------------------------------
+20. Big-O Relation
+--------------------------------------------------------------------
+log n ≤ c · n
+
+Choose:
+c = 1
+n₀ = 1
+
+Hence:
+log n = O(n)
+
+--------------------------------------------------------------------
+21. Very Important Generalization
+--------------------------------------------------------------------
+All functions that are:
+- less than
+- or equal to
+- c · n
+
+belong to O(n).
+
+--------------------------------------------------------------------
+22. Examples Included in O(n)
+--------------------------------------------------------------------
+- log n
+- log log n
+- 5 log n + 6 log log n
+- 100000 log n
+
+All are O(n).
+
+--------------------------------------------------------------------
+23. Order n² and Higher Orders
+--------------------------------------------------------------------
+If order is O(n²),
+then all of these belong:
+- n²
+- n log n
+- n
+- log n
+- constants
+
+But NOT:
+- n³
+- n⁴
+
+Because higher power grows faster.
+
+--------------------------------------------------------------------
+24. Growth Rate Analogy (Teacher’s Analogy)
+--------------------------------------------------------------------
+Think of:
+- n² as a fast vehicle
+- n³ as a rocket
+
+Initially, difference may be small,
+but eventually the faster one overtakes.
+
+Higher growth ALWAYS wins in the long run.
+
+--------------------------------------------------------------------
+25. Final Conclusions of Big-O
+--------------------------------------------------------------------
+- Big-O gives an upper bound
+- Constants do not matter
+- Lower-order terms do not matter
+- Big-O represents a SET of functions
+- Analysis is done for very large n
+- Machine speed is irrelevant
+
+--------------------------------------------------------------------
+26. One-Line Definition
+--------------------------------------------------------------------
+Big-O notation represents the set of functions
+whose growth rate is less than or equal to
+a given function for sufficiently large n.
+
+--------------------------------------------------------------------
+27. What Comes Next
+--------------------------------------------------------------------
+Next lecture:
+- Big-Omega (Ω)
+- Lower bound analysis
+
+====================================================================
+End of Lecture Notes
+====================================================================
+*/
