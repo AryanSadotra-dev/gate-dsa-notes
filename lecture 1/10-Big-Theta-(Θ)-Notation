@@ -1,0 +1,434 @@
+/*
+====================================================================
+📘 Lecture Notes: Big-Theta (Θ) Notation
+(Analysis of Algorithms – Complete & Detailed Notes)
+====================================================================
+
+Big-Theta (Θ) is the MOST IMPORTANT asymptotic notation because it
+describes the EXACT growth of an algorithm.
+
+This is NOT a shortcut notation.
+This is NOT guesswork.
+This is NOT memorization.
+
+Theta is used ONLY when we are 100% sure about the growth.
+
+====================================================================
+1. Why Big-Theta Is Needed
+====================================================================
+
+Big-O gives:
+- Upper bound (maximum possible growth)
+
+Big-Omega gives:
+- Lower bound (minimum guaranteed growth)
+
+But in real algorithm analysis, we often want:
+👉 the EXACT growth rate.
+
+Example:
+f(n) = 3n + 2
+
+True statements:
+- f(n) = O(n)
+- f(n) = O(n²)
+- f(n) = Ω(1)
+- f(n) = Ω(n)
+
+All are correct, but NONE tells the exact order.
+
+Hence, Big-Theta is introduced.
+
+====================================================================
+2. What Big-Theta Actually Means
+====================================================================
+
+Big-Theta says:
+
+👉 f(n) grows at the SAME RATE as g(n)
+
+Meaning:
+- f(n) does NOT grow faster than g(n)
+- f(n) does NOT grow slower than g(n)
+- f(n) is sandwiched between constant multiples of g(n)
+
+This is why Θ is called:
+👉 TIGHT BOUND
+
+====================================================================
+3. What Is Being Compared
+====================================================================
+
+We always compare TWO functions:
+
+- f(n) → running time of algorithm
+- g(n) → reference growth function
+
+Axes:
+- x-axis → input size (n)
+- y-axis → running time
+
+We NEVER care about:
+- small values of n
+- behavior before n₀
+
+We ONLY care about:
+👉 n → ∞ (very large input)
+
+====================================================================
+4. Graphical Intuition (Very Important)
+====================================================================
+
+Imagine three curves on a graph:
+
+Lower curve   → c₁ · g(n)
+Middle curve  → f(n)
+Upper curve   → c₂ · g(n)
+
+After a certain point n₀:
+- f(n) never goes below c₁·g(n)
+- f(n) never goes above c₂·g(n)
+
+So f(n) is TRAPPED between them forever.
+
+That trapping is Big-Theta.
+
+====================================================================
+5. Relation Between O, Ω and Θ
+====================================================================
+
+Big-Theta is NOT independent.
+
+Rule:
+
+If:
+f(n) = O(g(n))
+AND
+f(n) = Ω(g(n))
+
+THEN:
+f(n) = Θ(g(n))
+
+If even ONE fails:
+❌ Theta is NOT possible.
+
+====================================================================
+6. Symbols Used
+====================================================================
+
+Big-O     →  ≤
+Big-Omega→  ≥
+Big-Theta→  ≤ AND ≥ (both together)
+
+Theta always needs BOTH inequalities.
+
+====================================================================
+7. Formal Definition of Big-Theta
+====================================================================
+
+Given two functions f(n) and g(n):
+
+f(n) = Θ(g(n))  IF AND ONLY IF
+
+There exist:
+- two positive constants c₁ and c₂
+- a value n₀
+
+Such that:
+
+c₁ · g(n) ≤ f(n) ≤ c₂ · g(n)
+for all n ≥ n₀
+
+====================================================================
+8. Meaning of Each Term
+====================================================================
+
+c₁ :
+- Lower bound constant
+- Must be positive
+
+c₂ :
+- Upper bound constant
+- Must be positive
+
+n₀ :
+- Threshold point
+- After this point, inequalities must hold FOREVER
+
+Important rule:
+If inequality fails even once after n₀ → Θ fails.
+
+====================================================================
+9. Why Two Constants Are Required
+====================================================================
+
+Big-O → only upper bound → 1 constant
+Big-Ω → only lower bound → 1 constant
+Big-Θ → both bounds → 2 constants
+
+Theta = Exact growth → needs both sides.
+
+====================================================================
+10. Important Rule About n₀
+====================================================================
+
+Sometimes:
+- Lower bound gives n₀₁
+- Upper bound gives n₀₂
+
+Final n₀ is:
+👉 max(n₀₁, n₀₂)
+
+Teacher rule:
+“Choose the largest n₀ so that BOTH conditions hold.”
+
+====================================================================
+11. Question 1
+====================================================================
+
+Given:
+f(n) = 3n + 2
+g(n) = n
+
+Check:
+f(n) = Θ(n) ?
+
+====================================================================
+12. Lower Bound Proof (Ω part)
+====================================================================
+
+We want:
+3n + 2 ≥ c₁ · n
+
+Choose:
+c₁ = 1
+
+Then:
+3n + 2 ≥ n   (true for n ≥ 1)
+
+So:
+c₁ = 1
+n₀₁ = 1
+
+====================================================================
+13. Upper Bound Proof (O part)
+====================================================================
+
+We want:
+3n + 2 ≤ c₂ · n
+
+Choose:
+c₂ = 4
+
+Then:
+3n + 2 ≤ 4n  (true for n ≥ 2)
+
+So:
+c₂ = 4
+n₀₂ = 2
+
+====================================================================
+14. Final Result
+====================================================================
+
+n₀ = max(1, 2) = 2
+
+Hence:
+f(n) = Θ(n)
+
+====================================================================
+15. Question 2
+====================================================================
+
+Given:
+f(n) = 5n² + 6n + 2
+g(n) = n²
+
+Check:
+f(n) = Θ(n²) ?
+
+====================================================================
+16. Dominating Term Observation
+====================================================================
+
+Highest power of n is n².
+
+Lower degree terms:
+- 6n
+- constant 2
+
+Do NOT matter for large n.
+
+So intuitively:
+Θ(n²)
+
+Now prove formally.
+
+====================================================================
+17. Lower Bound Proof
+====================================================================
+
+5n² + 6n + 2 ≥ 1 · n²   (true for n ≥ 1)
+
+So:
+c₁ = 1
+n₀₁ = 1
+
+====================================================================
+18. Upper Bound Proof
+====================================================================
+
+5n² + 6n + 2 ≤ 6n²
+
+Check:
+For n ≥ 7 → inequality holds
+
+So:
+c₂ = 6
+n₀₂ = 7
+
+====================================================================
+19. Final Result
+====================================================================
+
+n₀ = 7
+
+Hence:
+f(n) = Θ(n²)
+
+====================================================================
+20. Question 3 (Failure Case)
+====================================================================
+
+Given:
+f(n) = 1000n
+g(n) = n²
+
+Check:
+f(n) = Θ(n²) ?
+
+====================================================================
+21. Checking Conditions
+====================================================================
+
+Upper bound:
+1000n ≤ c₂ · n²  ✔️ possible
+
+Lower bound:
+1000n ≥ c₁ · n²  ❌ impossible for large n
+
+Reason:
+n² grows faster than n.
+
+Hence:
+f(n) ≠ Θ(n²)
+
+====================================================================
+22. Reverse Check
+====================================================================
+
+Check:
+n² = Θ(1000n) ?
+
+Lower bound:
+n² ≥ c₁ · 1000n  ✔️
+
+Upper bound:
+n² ≤ c₂ · 1000n  ❌ not possible
+
+So:
+n² ≠ Θ(n)
+
+====================================================================
+23. Constant Time Case
+====================================================================
+
+Given:
+f(n) = 1000
+g(n) = 1
+
+Check:
+f(n) = Θ(1) ?
+
+Proof:
+1 · 1 ≤ 1000 ≤ 1000 · 1
+
+True for all n ≥ 1
+
+Hence:
+f(n) = Θ(1)
+
+====================================================================
+24. Important Clarification
+====================================================================
+
+Θ(1) does NOT mean time = 1.
+
+It means:
+Time is constant.
+
+100, 5000, 1 → all belong to Θ(1).
+
+====================================================================
+25. Dominating Term Rule (Very Important)
+====================================================================
+
+For polynomial functions:
+- Ignore constants
+- Ignore lower-degree terms
+- Take highest power
+
+Examples:
+3n + 2            → Θ(n)
+7n² + n + 10     → Θ(n²)
+n³ + 100n² + 5   → Θ(n³)
+
+====================================================================
+26. Theta Represents a SET
+====================================================================
+
+Θ does NOT represent a single function.
+
+Example:
+If f(n) = 5n² + 6n + 2
+
+Then f(n) is:
+Θ(n²)
+
+But NOT:
+Θ(n)
+Θ(n³)
+
+Theta is very strict.
+
+====================================================================
+27. Comparison Summary
+====================================================================
+
+Big-O      → Upper bound (worst case limit)
+Big-Omega → Lower bound (best case limit)
+Big-Theta → Tight bound (exact growth)
+
+====================================================================
+28. Final Conclusions
+====================================================================
+
+- Big-Theta gives exact growth
+- Both Big-O and Big-Omega must hold
+- Constants do not matter
+- Dominating term matters
+- Before n₀ behavior is irrelevant
+- Theta is the most precise notation
+
+====================================================================
+29. One-Line Definition
+====================================================================
+
+Big-Theta (Θ) represents the set of functions that grow
+at the SAME RATE as a given function for sufficiently
+large input size.
+
+====================================================================
+End of Big-Theta (Θ) Notes
+====================================================================
+*/
