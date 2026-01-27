@@ -1,0 +1,426 @@
+/*
+====================================================================
+📘 Lecture Notes:
+Asymptotic Notations – Small-o, Small-Ω
+(Big-O, Big-Ω, Θ Relations + Board Questions Explained)
+(Teacher’s Full Classroom Teaching Style – Image + Lecture Reconstruction)
+====================================================================
+
+⚠️ These notes are a direct reconstruction of the lecture,
+including board drawings, arrows, crossings, circles, and questions.
+
+⚠️ Nothing is skipped.
+⚠️ Repetition is intentional.
+⚠️ Images are verbally decoded into logic and meaning.
+⚠️ Written for GitHub + deep algorithmic understanding.
+
+====================================================================
+
+
+------------------------------------------------------------
+1. Opening Context – Why This Lecture Exists
+------------------------------------------------------------
+
+The instructor begins by clearly stating that:
+
+• Big-O notation
+• Big-Ω notation
+• Big-Θ notation
+
+have already been **completed properly** in previous lectures.
+
+Only **two notations are left**:
+• Small-o
+• Small-omega (ω)
+
+He honestly tells students:
+
+“These are not very important for exams,
+but you should NOT skip them completely.”
+
+Why?
+Because they give **conceptual depth** and help you
+understand **dominance vs strict dominance**.
+
+He also promises:
+Today, he will explain **why Θ exists**
+and **why small-θ DOES NOT exist**.
+
+
+------------------------------------------------------------
+2. Board Setup (Image Explanation)
+------------------------------------------------------------
+
+On the board, the instructor writes:
+
+f(n) = 3n + 2     (underlined)
+
+On the right side of the board:
+• O(n)
+• O(n²)
+• O(n³)
+• O(n log n)
+
+These are written with arrows, circles, and question marks.
+
+🔍 Meaning of the drawing:
+The teacher is visually showing that **one function can satisfy
+multiple Big-O bounds**, because Big-O allows “≥ or =”.
+
+This visual directly contrasts with **Small-o**, where equality is forbidden.
+
+
+------------------------------------------------------------
+3. Revisiting Big-O (Very Briefly, for Contrast)
+------------------------------------------------------------
+
+In Big-O, we say:
+
+f(n) = O(g(n))
+if there exists **AT LEAST ONE positive constant C**
+such that:
+
+f(n) ≤ C·g(n)  for all n ≥ n₀
+
+This is why:
+• f(n) = 3n + 2
+• can be O(n)
+• can be O(n log n)
+• can be O(n²)
+• can even be O(n³)
+
+Because Big-O is an **upper bound**, not a tight bound.
+
+
+------------------------------------------------------------
+4. Introducing Small-o (Core Definition)
+------------------------------------------------------------
+
+Now the instructor switches tone and says:
+
+“Now focus carefully.
+Here is where students usually make mistakes.”
+
+Definition (spoken slowly):
+
+f(n) = o(g(n))
+IF
+for **EVERY positive constant C**
+there exists a value n₀
+such that for all n ≥ n₀,
+
+f(n) < C·g(n)     (STRICT inequality)
+
+Key stress points (repeated multiple times in lecture):
+
+1️⃣ **For EVERY positive constant**
+   – not at least one  
+   – every possible positive real number  
+   – 0.1, 0.001, 100, 1/100000, anything  
+
+2️⃣ **Strictly less than**
+   – NOT ≤  
+   – equality is NOT allowed  
+
+3️⃣ After some n₀, this must hold forever  
+
+
+------------------------------------------------------------
+5. Core Intuition (Teacher’s Main Explanation)
+------------------------------------------------------------
+
+The teacher explains this intuition in multiple ways.
+
+He says:
+
+“In Small-o, constants don’t matter anymore.”
+
+Why?
+
+Because if **even after multiplying g(n) by a very small constant**,
+g(n) is still bigger than f(n),
+then f(n) is **fundamentally smaller**.
+
+This means:
+• The dominance is not due to constants
+• The dominance is due to growth rate
+
+
+------------------------------------------------------------
+6. Height Analogy (Board Drawing Explanation)
+------------------------------------------------------------
+
+On the board, the teacher draws two circles:
+
+• One circle lower
+• One circle much higher
+
+He draws arrows:
+• Try to pull the higher one down
+• Try to push it up
+
+Explanation:
+
+If one function is already much larger in growth,
+then:
+• Making the constant smaller does not help
+• Making the constant bigger does not matter
+
+The taller person always remains taller.
+
+That is Small-o.
+
+
+------------------------------------------------------------
+7. Second (Easier) Definition of Small-o
+------------------------------------------------------------
+
+Now the teacher writes a new definition:
+
+f(n) = o(g(n))
+IFF
+
+lim (n → ∞) [ f(n) / g(n) ] = 0
+
+He explicitly says:
+
+“This definition is VERY EASY and VERY IMPORTANT.”
+
+Why?
+
+Because:
+• No constants
+• No guessing C
+• Just check the limit
+
+If the ratio goes to zero,
+then f(n) is negligible compared to g(n).
+
+
+------------------------------------------------------------
+8. Board Question 1 (From Image)
+------------------------------------------------------------
+
+Question written on the board:
+
+f(n) = 3n + 2   → TRUE?
+
+Options:
+a) f(n) = o(n²)        ✓
+b) f(n) = o(n log n)   ✓
+c) f(n) = o(n³)        ✓
+d) f(n) = o(n)         ✗
+
+Now the teacher explains **each option verbally**.
+
+
+------------------------------------------------------------
+9. Option (a): f(n) = o(n²)
+------------------------------------------------------------
+
+Check the limit:
+
+(3n + 2) / n² → 0
+
+n² grows much faster than n.
+
+So YES:
+f(n) = o(n²)
+
+Teacher’s money analogy:
+“If you have one crore squared money,
+then 3 crore + 2 rupees means nothing.”
+
+
+------------------------------------------------------------
+10. Option (b): f(n) = o(n log n)
+------------------------------------------------------------
+
+Check the limit:
+
+(3n + 2) / (n log n)
+= (3 + 2/n) / log n → 0
+
+Because log n → ∞.
+
+So YES:
+f(n) = o(n log n)
+
+
+------------------------------------------------------------
+11. Option (c): f(n) = o(n³)
+------------------------------------------------------------
+
+Same logic:
+
+(3n + 2) / n³ → 0
+
+So YES:
+f(n) = o(n³)
+
+
+------------------------------------------------------------
+12. Option (d): f(n) = o(n) ❌
+------------------------------------------------------------
+
+Check the limit:
+
+(3n + 2) / n → 3
+
+Limit ≠ 0.
+
+So this FAILS.
+
+Teacher’s warning:
+
+“If someone chooses a very small constant,
+you will not be able to prove it.”
+
+Hence:
+f(n) ≠ o(n)
+
+
+------------------------------------------------------------
+13. Important Relationship (Board Arrows)
+------------------------------------------------------------
+
+The teacher draws arrows showing:
+
+Small-o  ⇒  Big-O   (ALWAYS)
+
+But:
+Big-O  ⇏  Small-o
+
+Why?
+
+Because:
+• Big-O allows equality
+• Small-o forbids equality
+
+
+------------------------------------------------------------
+14. Introducing Small-Omega (ω)
+------------------------------------------------------------
+
+Now the teacher flips the logic.
+
+Definition:
+
+f(n) = ω(g(n))
+IF
+for **EVERY positive constant C**
+there exists n₀ such that for all n ≥ n₀,
+
+f(n) > C·g(n)   (STRICT)
+
+Again:
+• EVERY constant
+• STRICT inequality
+
+
+------------------------------------------------------------
+15. Limit Definition of Small-Omega
+------------------------------------------------------------
+
+Second definition:
+
+f(n) = ω(g(n))
+IFF
+
+lim (n → ∞) [ g(n) / f(n) ] = 0
+
+Meaning:
+f(n) grows so fast that g(n) becomes negligible.
+
+
+------------------------------------------------------------
+16. Why Equality Is NOT Allowed (Critical Insight)
+------------------------------------------------------------
+
+Example discussed verbally:
+
+f(n) = 3n + 2  
+g(n) = n  
+
+Even though f(n) > n for large n,
+you CANNOT say f(n) = ω(n).
+
+Why?
+
+Because:
+For large constants (like C = 10000),
+the inequality fails.
+
+Since definition says:
+“for EVERY constant”,
+even ONE failure breaks everything.
+
+
+------------------------------------------------------------
+17. Why Small-Theta Does NOT Exist
+------------------------------------------------------------
+
+This is the conceptual climax.
+
+Big-Θ says:
+C₁·g(n) ≤ f(n) ≤ C₂·g(n)
+
+Equality allowed.
+
+If we try to define Small-Θ,
+we would need:
+
+• f(n) strictly bigger than g(n)
+• AND strictly smaller than g(n)
+• For EVERY constant
+
+This is **logically impossible**.
+
+Hence:
+❌ Small-Θ does not exist.
+
+That is why we never define it.
+
+
+------------------------------------------------------------
+18. Final Summary (Teacher’s Own Words, Structured)
+------------------------------------------------------------
+
+Small-o:
+• f(n) is STRICTLY smaller than g(n)
+• Ratio → 0
+
+Small-Omega:
+• f(n) is STRICTLY larger than g(n)
+• Reverse ratio → 0
+
+Big-O / Big-Ω:
+• Equality allowed
+
+Constants:
+• Become meaningless at infinity
+
+Growth rate:
+• Everything
+
+
+------------------------------------------------------------
+19. Lecture Closure
+------------------------------------------------------------
+
+The instructor concludes:
+
+“All five asymptotic notations are now complete.”
+
+Next lecture:
+• Properties
+• Symmetry
+• Transitivity
+
+He encourages students to **think**, not memorize,
+because algorithm analysis improves only by thinking.
+
+====================================================================
+END OF LECTURE NOTES
+====================================================================
+*/
